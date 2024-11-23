@@ -35,7 +35,5 @@ public class Evil {
         this.damage = damage;
     }
 
-    public boolean checkAlive(int healthy) {
-        return healthy > 0;
-    }
+
 }

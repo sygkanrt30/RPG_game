@@ -1,6 +1,8 @@
 package ru.pracise.oop.game.heros;
 
 
+import ru.pracise.oop.game.evils.Evil;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,12 +21,12 @@ public abstract class Hero {
             Items.BACKPACK,
             Items.ARROW,
             Items.FOOD,
-            Items.KEY,
-            Items.POTION,
             Items.SHIELD,
             Items.SWORD,
-            Items.BOW
+            Items.BOW,
+            Items.AXE
     };
+
 
     public Hero(int power, int exp, int agility, int mana, int intellect, int healthy, double x, double y, int liftedPower) {
         this.power = power;
@@ -114,13 +116,20 @@ public abstract class Hero {
             if (item.equals(value) && canTakeInInventory(item, value.getWeight())) {
                 inventory.add(item);
                 liftedPower -= value.getWeight();
+                if (haveShield()) {
+                    healthy += 30;
+                }
             }
         }
     }
 
+    public boolean haveShield() {
+        return count(inventory, Items.SHIELD) > 0;
+    }
+
     protected boolean canTakeInInventory(Items item, int weight) {
         switch (item) {
-            case BOW, SWORD, SHIELD, BACKPACK, KEY:
+            case BOW, SWORD, SHIELD, BACKPACK:
                 if (count(inventory, item) > 1) {
                     return false;
                 }
@@ -139,12 +148,15 @@ public abstract class Hero {
         return k;
     }
 
-    public abstract boolean attack(int healthyOfEnemy);
+    protected abstract void attack(Evil enemy);
 
-    public boolean checkAlive(int healthy){
+    protected abstract void defence(Evil enemy);
+
+    public abstract boolean fight(Evil enemy);
+
+    public boolean checkAlive(int healthy) {
         return healthy > 0;
     }
-
 
 
 }

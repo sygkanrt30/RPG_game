@@ -2,13 +2,13 @@ package ru.pracise.oop.game.heros;
 
 public enum Items {
     BACKPACK("backpack", 0, 0),
-    SWORD("sword", 30, 19),
-    KEY("key", 5, 0),
-    BOW("bow", 22, 15),
+    SWORD("sword", 27, 7),
+    BOW("bow", 22, 10),
     SHIELD("shield", 31, 0),
     FOOD("food", 4, 0),
-    POTION("potion", 6, 9),
     ARROW("arrow", 12, 0),
+    AXE("axe", 35, 12),
+    HANDS("hands", 0, 3)
     ;
 
     private final String name;
