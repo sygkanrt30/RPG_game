@@ -1,15 +1,14 @@
-package ru.pracise.oop.game.heros;
+package ru.practise.oop.game.heros;
 
 public enum Items {
-    BACKPACK("backpack", 0, 0),
-    SWORD("sword", 27, 7),
-    BOW("bow", 22, 10),
-    SHIELD("shield", 31, 0),
-    FOOD("food", 4, 0),
-    ARROW("arrow", 12, 0),
-    AXE("axe", 35, 12),
-    HANDS("hands", 0, 3)
-    ;
+    BACKPACK("Backpack", 0, 0),
+    SWORD("Sword", 27, 7),
+    BOW("Bow", 22, 10),
+    SHIELD("Shield", 31, 0),
+    PILL("Pill", 2, 0),
+    ARROW("Arrow", 5, 0),
+    AXE("Axe", 34, 12),
+    HANDS("Hands", 0, 3);
 
     private final String name;
     private final int weight;

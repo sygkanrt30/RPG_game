@@ -1,3 +1,5 @@
 target/
 .idea/
 .DS_Store
+.Characters
+/src/main/java/ru/practise/oop/game/Сharacters
