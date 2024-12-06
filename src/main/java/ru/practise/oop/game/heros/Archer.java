@@ -121,25 +121,27 @@ public class Archer extends Hero {
         currentLevel += 1;
         agility += 2;
         maxHealth += 20;
-        healthy = maxHealth;
+        if (healthy < maxHealth){
+            healthy = maxHealth;
+        }
         mana += 2;
         intellect += 2;
         liftedPower += 20;
         power += 3;
+        System.out.println("Congratulations!!! Now your level = " + currentLevel);
+        System.out.println(this);
     }
 
     @Override
     public String toString() {
-        return "Archer{" +
-                "power=" + power +
-                ", exp=" + exp +
-                ", agility=" + agility +
-                ", mana=" + mana +
-                ", intellect=" + intellect +
-                ", healthy=" + healthy +
-                ", liftedPower=" + liftedPower +
-                ", currentLevel=" + currentLevel +
-                ", inventory=" + inventory +
-                '}';
+        return "Archer:" +
+                "\npower = " + power +
+                "\nexp = " + exp +
+                "\nagility = " + agility +
+                "\nmana = " + mana +
+                "\nintellect = " + intellect +
+                "\nhealthy = " + healthy +
+                "\nliftedPower = " + liftedPower +
+                "\ninventory = " + ((!inventory.isEmpty())? inventory: "nothing yet");
     }
 }

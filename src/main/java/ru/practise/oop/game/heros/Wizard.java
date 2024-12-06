@@ -250,7 +250,9 @@ public class Wizard extends Hero {
         currentLevel += 1;
         agility += 2;
         maxHealth += 25;
-        healthy = maxHealth;
+        if (healthy < maxHealth){
+            healthy = maxHealth;
+        }
         mana += 3;
         intellect += 3;
         liftedPower += 20;
@@ -260,23 +262,23 @@ public class Wizard extends Hero {
                 studyingScrolls(inventoryScroll);
             }
         }
+        System.out.println("Congratulations!!! Now your level = " + currentLevel);
+        System.out.println(this);
     }
 
     @Override
     public String toString() {
-        return "Wizard{" +
-                "power=" + power +
-                ", exp=" + exp +
-                ", agility=" + agility +
-                ", mana=" + mana +
-                ", intellect=" + intellect +
-                ", healthy=" + healthy +
-                ", liftedPower=" + liftedPower +
-                ", currentLevel=" + currentLevel +
-                ", inventory=" + inventory +
-                ", inventoryScrolls=" + inventoryScrolls +
-                ", knownSpells=" + knownSpells +
-                '}';
+        return "Wizard:" +
+                "\npower = " + power +
+                "\nexp = " + exp +
+                "\nagility = " + agility +
+                "\nmana = " + mana +
+                "\nintellect = " + intellect +
+                "\nhealthy = " + healthy +
+                "\nliftedPower = " + liftedPower +
+                "\ninventory = " + ((!inventory.isEmpty())? inventory: "nothing yet") +
+                "\ninventoryScrolls = " + ((!inventoryScrolls.isEmpty())? inventoryScrolls: "nothing yet") +
+                "\nknownSpells = " + ((!knownSpells.isEmpty())? knownSpells: "nothing yet");
     }
 
 }

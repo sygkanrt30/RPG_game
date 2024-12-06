@@ -74,7 +74,6 @@ public class Main {
                         }
                     }
                     if (warrior.isNextLevel()) {
-                        System.out.println(warrior.getExp());
                         warrior.toNextLevel();
                     }
                 }
