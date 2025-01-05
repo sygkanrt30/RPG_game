@@ -9,16 +9,20 @@ public class CheckInputs {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static boolean checkChosenOfCharacter(String s) {
-        return !s.equals("Warrior") && !s.equals("Archer") && !s.equals("Wizard");
+        return !(s.compareToIgnoreCase("Warrior") == 0) &&
+                !(s.compareToIgnoreCase("Archer") == 0) &&
+                !(s.compareToIgnoreCase("Wizard") == 0);
     }
 
     public static boolean checkChosenMethodOfAttackWarrior(String s) {
-        return !(s.equals("Sword") || s.equals("Hand-to-hand combat") || s.equals("Axe"));
+        return !((s.compareToIgnoreCase("Sword") == 0) ||
+                (s.compareToIgnoreCase("Hand-to-hand combat") == 0) ||
+                (s.compareToIgnoreCase("Axe") == 0));
     }
 
     public static boolean checkChosenSpellWizard(String chosenSpell, HashSet<Spells> knownSpells) {
         for (Spells spell : knownSpells) {
-            if (spell.getName().equals(chosenSpell)) {
+            if (spell.getName().compareToIgnoreCase(chosenSpell) == 0) {
                 return true;
             }
         }
@@ -45,7 +49,7 @@ public class CheckInputs {
             }
             answer = scanner.nextLine();
             k++;
-        } while (!(answer.equals("yes") || answer.equals("no")));
+        } while (!(answer.compareToIgnoreCase("yes") == 0 || answer.compareToIgnoreCase("no") == 0));
         return answer;
     }
 
@@ -131,7 +135,7 @@ public class CheckInputs {
         } while (CheckInputs.checkChosenOfCharacter(item));
         Items item1 = null;
         for (int i = 0; i < warrior.getInventory().size(); i++) {
-            if (item.equals(warrior.getInventory().get(i).getName().toLowerCase())) {
+            if (item.compareToIgnoreCase(warrior.getInventory().get(i).getName()) == 0) {
                 item1 = warrior.getInventory().get(i);
                 break;
             }
@@ -151,7 +155,7 @@ public class CheckInputs {
         } while (CheckInputs.checkChosenOfCharacter(item));
         Items item1 = null;
         for (int i = 0; i < archer.getInventory().size(); i++) {
-            if (item.equals(archer.getInventory().get(i).getName().toLowerCase())) {
+            if (item.compareToIgnoreCase(archer.getInventory().get(i).getName()) == 0) {
                 item1 = archer.getInventory().get(i);
                 break;
             }

@@ -107,7 +107,7 @@ public class Archer extends Hero {
         if (!(liftedPower - weight >= 0)) {
             System.out.println(inventory);
             String answer = CheckInputs.inputYesOrNot();
-            if (answer.equals("yes")) {
+            if (answer.compareToIgnoreCase("yes") == 0) {
                 throwAwayItem(CheckInputs.chosenThrowawayItem(this));
                 return canTakeInInventory(item, weight);
             }
@@ -121,7 +121,7 @@ public class Archer extends Hero {
         currentLevel += 1;
         agility += 2;
         maxHealth += 20;
-        if (healthy < maxHealth){
+        if (healthy < maxHealth) {
             healthy = maxHealth;
         }
         mana += 2;
@@ -142,6 +142,6 @@ public class Archer extends Hero {
                 "\nintellect = " + intellect +
                 "\nhealthy = " + healthy +
                 "\nliftedPower = " + liftedPower +
-                "\ninventory = " + ((!inventory.isEmpty())? inventory: "nothing yet");
+                "\ninventory = " + ((!inventory.isEmpty()) ? inventory : "nothing yet");
     }
 }

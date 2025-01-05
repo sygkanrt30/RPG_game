@@ -42,17 +42,17 @@ public class Wizard extends Hero {
         if (!knownSpells.isEmpty()) {
             chosenSpell = inputChosenSpell();
             switch (chosenSpell) {
-                case "Fireball" -> {
+                case "fireball" -> {
                     damage = Spells.FIREBALL.getDamage() * power;
                     enemy.setHealthy(enemy.getHealthy() - damage);
                     System.out.println("Wizard has dealt " + damage + " damage");
                 }
-                case "Thorns" -> {
+                case "thorns" -> {
                     damage = Spells.THORNS.getDamage() * power;
                     enemy.setHealthy(enemy.getHealthy() - damage);
                     System.out.println("Wizard has dealt " + damage + " damage");
                 }
-                case "Slowing down" -> {
+                case "slowing down" -> {
                     limitSlowingDown--;
                     if (limitSlowingDown < 1) {
                         System.out.println("Limit of slowing down has been spent");
@@ -65,12 +65,12 @@ public class Wizard extends Hero {
                     System.out.println("Wizard has dealt " + damage + " damage");
 
                 }
-                case "Lightning" -> {
+                case "lightning" -> {
                     damage = Spells.LIGHTNING.getDamage() * power;
                     enemy.setHealthy(enemy.getHealthy() - damage);
                     System.out.println("Wizard has dealt " + damage + " damage");
                 }
-                case "Heal" -> {
+                case "heal" -> {
                     limitHeal--;
                     if (limitHeal < 1) {
                         System.out.println("Limit of heal has been spent");
@@ -80,7 +80,7 @@ public class Wizard extends Hero {
                     System.out.println("Wizard increased your health to the max");
 
                 }
-                case "Hellfire" -> {
+                case "hellfire" -> {
                     limitHellfire--;
                     if (limitHellfire < 1) {
                         System.out.println("Limit of hellfire has been spent");
@@ -91,12 +91,12 @@ public class Wizard extends Hero {
                     System.out.println("Wizard has dealt " + damage + " damage");
 
                 }
-                case "Wall of water" -> {
+                case "wall of water" -> {
                     damage = Spells.WALL_OF_WATER.getDamage() * power;
                     enemy.setHealthy(enemy.getHealthy() - damage);
                     System.out.println("Wizard has dealt " + damage + " damage");
                 }
-                case "Shield of water" -> {
+                case "shield of water" -> {
                     limitShieldOfWater--;
                     if (limitShieldOfWater < 1) {
                         System.out.println("Limit of shield of water has been spent");
@@ -237,12 +237,12 @@ public class Wizard extends Hero {
             chosenSpell = scanner.nextLine();
             k++;
         } while (!(CheckInputs.checkChosenSpellWizard(chosenSpell, knownSpells)));
-        if (chosenSpell.equals("Hellfire") && limitHellfire < 1 || chosenSpell.equals("Slowing down") && limitSlowingDown < 1
-                || chosenSpell.equals("Heal") && limitHeal < 1 || chosenSpell.equals("Shield of water") && limitShieldOfWater < 1) {
+        if (chosenSpell.compareToIgnoreCase("Hellfire") == 0 && limitHellfire < 1 || chosenSpell.compareToIgnoreCase("Slowing down") == 0 && limitSlowingDown < 1
+                || chosenSpell.compareToIgnoreCase("Heal") == 0 && limitHeal < 1 || chosenSpell.compareToIgnoreCase("Shield of water") == 0 && limitShieldOfWater < 1) {
             System.out.println("Limit of " + chosenSpell.toLowerCase() + " has been spent\n");
             return inputChosenSpell();
         }
-        return chosenSpell;
+        return chosenSpell.toLowerCase();
     }
 
     @Override

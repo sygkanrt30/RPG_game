@@ -35,7 +35,7 @@ public class Main {
         System.out.println(" ****** Welcome! ******");
         System.out.println("In order to  choose a character class, copy and paste one of the options:\nWarrior\nArcher\nWizard");
         String classOfCharacter = CheckInputs.inputClassCharacter();
-        if (classOfCharacter.equals("Warrior")) {
+        if (classOfCharacter.compareToIgnoreCase("Warrior") == 0) {
             Warrior warrior = new Warrior(5, 0, 2, 2, 3, 50, 0, 0, 80);
             while (true) {
                 if (warrior.haveShield() && k == 0) {
@@ -51,7 +51,7 @@ public class Main {
                     System.out.println("There's a " + item.getName().toLowerCase() + " on the ground");
                     System.out.println("Shall you take it?");
                     String answer = CheckInputs.inputYesOrNot();
-                    if (answer.equals("yes")) {
+                    if (answer.compareToIgnoreCase("yes") == 0) {
                         warrior.takeItem(item);
                     } else {
                         System.out.println("Next time there will be something useful");
@@ -59,15 +59,15 @@ public class Main {
                 } else {
                     Evil enemy = enemies.get(warrior.getCurrentLevel());
                     boolean isAlive = warrior.fight(enemy);
-                    System.out.println(warrior.getExp() + " - exp");
                     if (!isAlive) {
                         return;
                     }
+                    System.out.println(warrior.getExp() + " - exp");
                     enemy.recreation();
                     if (warrior.getInventory().contains(Items.PILL)) {
                         System.out.println("Do you want to heal?");
                         String answer = CheckInputs.inputYesOrNot();
-                        if (answer.equals("yes")) {
+                        if (answer.compareToIgnoreCase("yes") == 0) {
                             warrior.heal();
                         } else {
                             System.out.println("Right! We need to save pills");
@@ -78,7 +78,7 @@ public class Main {
                     }
                 }
             }
-        } else if (classOfCharacter.equals("Archer")) {
+        } else if (classOfCharacter.compareToIgnoreCase("Archer") == 0) {
             Archer archer = new Archer(3, 0, 5, 4, 5, 35, 0, 0, 70);
             while (true) {
                 if (archer.haveShield() && k == 0) {
@@ -94,7 +94,7 @@ public class Main {
                     System.out.println("There's a " + item.getName().toLowerCase() + " on the ground");
                     System.out.println("Shall you take it?");
                     String answer = CheckInputs.inputYesOrNot();
-                    if (answer.equals("yes")) {
+                    if (answer.compareToIgnoreCase("yes") == 0) {
                         archer.takeItem(item);
                     } else {
                         System.out.println("Next time there will be something useful");
@@ -102,15 +102,15 @@ public class Main {
                 } else {
                     Evil enemy = enemies.get(archer.getCurrentLevel());
                     boolean isAlive = archer.fight(enemy);
-                    System.out.println(archer.getExp() + " - exp");
                     if (!isAlive) {
                         return;
                     }
+                    System.out.println(archer.getExp() + " - exp");
                     enemy.recreation();
                     if (archer.getInventory().contains(Items.PILL)) {
                         System.out.println("Do you want to heal?");
                         String answer = CheckInputs.inputYesOrNot();
-                        if (answer.equals("yes")) {
+                        if (answer.compareToIgnoreCase("yes") == 0) {
                             archer.heal();
                         } else {
                             System.out.println("Right! We need to save pills");
@@ -133,7 +133,7 @@ public class Main {
                 System.out.println("There's a " + scroll.getName().toLowerCase() + " on the ground");
                 System.out.println("Shall you take it?");
                 String answer = CheckInputs.inputYesOrNot();
-                if (answer.equals("yes")) {
+                if (answer.compareToIgnoreCase("yes") == 0) {
                     wizard.takeScroll(scroll);
                 } else {
                     System.out.println("Next time there will be something useful");
@@ -143,7 +143,7 @@ public class Main {
                 System.out.println("There's a " + item.getName().toLowerCase() + " on the ground");
                 System.out.println("Shall you take it?");
                 String answer = CheckInputs.inputYesOrNot();
-                if (answer.equals("yes")) {
+                if (answer.compareToIgnoreCase("yes") == 0) {
                     wizard.takeItem(item);
                 } else {
                     System.out.println("Next time there will be something useful");
@@ -154,11 +154,12 @@ public class Main {
                 if (!isAlive) {
                     return;
                 }
+                System.out.println(wizard.getExp() + " - exp");
                 enemy.recreation();
                 if (wizard.getInventory().contains(Items.PILL)) {
                     System.out.println("Do you want to heal?");
                     String answer = CheckInputs.inputYesOrNot();
-                    if (answer.equals("yes")) {
+                    if (answer.compareToIgnoreCase("yes") == 0) {
                         wizard.heal();
                     } else {
                         System.out.println("Right! We need to save pills");

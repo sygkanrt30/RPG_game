@@ -20,9 +20,9 @@ public class Warrior extends Hero {
         if (inventory.contains(Items.SWORD) || inventory.contains(Items.AXE)) {
             methodOfAttack = inputMethodOfAttack();
             switch (methodOfAttack) {
-                case "Sword" -> damage = Items.SWORD.getDamage() * power;
-                case "Hand-to-hand combat" -> damage = Items.HANDS.getDamage() * power;
-                case "Axe" -> damage = Items.AXE.getDamage() * power;
+                case "sword" -> damage = Items.SWORD.getDamage() * power;
+                case "hand-to-hand combat" -> damage = Items.HANDS.getDamage() * power;
+                case "axe" -> damage = Items.AXE.getDamage() * power;
             }
         } else {
             damage = Items.HANDS.getDamage() * power;
@@ -98,7 +98,7 @@ public class Warrior extends Hero {
         if (!(liftedPower - weight >= 0)) {
             System.out.println(inventory);
             String answer = CheckInputs.inputYesOrNot();
-            if (answer.equals("yes")) {
+            if (answer.compareToIgnoreCase("yes") == 0) {
                 throwAwayItem(CheckInputs.chosenThrowawayItem(this));
                 return canTakeInInventory(item, weight);
             }
@@ -125,7 +125,7 @@ public class Warrior extends Hero {
             methodOfAttack = scanner.nextLine();
             k++;
         } while (CheckInputs.checkChosenMethodOfAttackWarrior(methodOfAttack));
-        return methodOfAttack;
+        return methodOfAttack.toLowerCase();
     }
 
     @Override
