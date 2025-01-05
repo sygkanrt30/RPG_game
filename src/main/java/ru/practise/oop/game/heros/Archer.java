@@ -133,6 +133,17 @@ public class Archer extends Hero {
     }
 
     @Override
+    public void heal() {
+        if (inventory.contains(Items.PILL)) {
+            healthy = maxHealth;
+            boolean isRemove = inventory.remove(Items.PILL);
+            System.out.println("The archer is healthy and full of strength");
+        } else {
+            System.out.println("Archer doesn't have any pills");
+        }
+    }
+
+    @Override
     public String toString() {
         return "Archer:" +
                 "\npower = " + power +

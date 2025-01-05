@@ -20,16 +20,6 @@ public class Main {
                 Items.BOW,
                 Items.AXE
         };
-        Spells[] scrolls = {
-                Spells.FIREBALL,
-                Spells.HEAL,
-                Spells.HELLFIRE,
-                Spells.LIGHTNING,
-                Spells.THORNS,
-                Spells.WALL_OF_WATER,
-                Spells.SLOWING_DOWN,
-                Spells.SHIELD_OF_WATER
-        };
         int k = 0;
         System.out.println("*** RPG game console ***");
         System.out.println(" ****** Welcome! ******");
@@ -62,7 +52,7 @@ public class Main {
                     if (!isAlive) {
                         return;
                     }
-                    System.out.println(warrior.getExp() + " - exp");
+                    System.out.println("Exp: " + warrior.getExp());
                     enemy.recreation();
                     if (warrior.getInventory().contains(Items.PILL)) {
                         System.out.println("Do you want to heal?");
@@ -84,7 +74,7 @@ public class Main {
                 if (archer.haveShield() && k == 0) {
                     archer.setHealthy(archer.getHealthy() + 30);
                     k++;
-                    System.out.println("Now the warrior’s health along with his armor = " + archer.getHealthy());
+                    System.out.println("Now the archer’s health along with his armor = " + archer.getHealthy());
                 }
                 int cef = (int) (Math.random() * 10);
                 int indexItems = (int) (Math.random() * items.length);
@@ -105,7 +95,7 @@ public class Main {
                     if (!isAlive) {
                         return;
                     }
-                    System.out.println(archer.getExp() + " - exp");
+                    System.out.println("Exp: " + archer.getExp());
                     enemy.recreation();
                     if (archer.getInventory().contains(Items.PILL)) {
                         System.out.println("Do you want to heal?");
@@ -123,6 +113,7 @@ public class Main {
             }
         }
         Wizard wizard = new Wizard(3, 0, 4, 6, 6, 30, 0, 0, 40);
+        Spells[] scrolls = wizard.getScrolls();
         while (true) {
             int cef = (int) (Math.random() * 10);
             int indexItems = (int) (Math.random() * items.length);
@@ -154,7 +145,7 @@ public class Main {
                 if (!isAlive) {
                     return;
                 }
-                System.out.println(wizard.getExp() + " - exp");
+                System.out.println("Exp: " + wizard.getExp());
                 enemy.recreation();
                 if (wizard.getInventory().contains(Items.PILL)) {
                     System.out.println("Do you want to heal?");

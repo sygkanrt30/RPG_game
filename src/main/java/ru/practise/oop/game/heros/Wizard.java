@@ -134,6 +134,10 @@ public class Wizard extends Hero {
 
     }
 
+    public Spells[] getScrolls() {
+        return scrolls;
+    }
+
     @Override
     public boolean fight(Evil enemy) {
         while (true) {
@@ -264,6 +268,17 @@ public class Wizard extends Hero {
         }
         System.out.println("Congratulations!!! Now your level = " + currentLevel);
         System.out.println(this);
+    }
+
+    @Override
+    public void heal() {
+        if (inventory.contains(Items.PILL)) {
+            healthy = maxHealth;
+            boolean isRemove = inventory.remove(Items.PILL);
+            System.out.println("The wizard is healthy and full of strength");
+        } else {
+            System.out.println("Wizard doesn't have any pills");
+        }
     }
 
     @Override

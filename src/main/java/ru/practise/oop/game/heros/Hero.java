@@ -88,7 +88,7 @@ public abstract class Hero {
     public void move(int i, int j) {
         x += i;
         y += j;
-        System.out.println("Warrior location x = " + x + " y = " + y);
+        System.out.println("Location x = " + x + " y = " + y);
     }
 
     public boolean checkAlive(int healthy) {
@@ -99,15 +99,7 @@ public abstract class Hero {
         return exp >= 100 * (currentLevel + 1);
     }
 
-    public void heal() {
-        if (inventory.contains(Items.PILL)) {
-            healthy = maxHealth;
-            boolean isRemove = inventory.remove(Items.PILL);
-            System.out.println("The warrior is healthy and full of strength");
-        } else {
-            System.out.println("You don't have any pills");
-        }
-    }
+    public abstract void heal();
 
     public void throwAwayItem(Items item) {
         if (inventory.contains(item)) {
