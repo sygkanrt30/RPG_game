@@ -20,7 +20,7 @@ public class Archer extends Hero {
         int fortunaEnemy = (int) (Math.random() * 21);
         if (fortunaEnemy <= enemy.getAgility()) {
             System.out.println("Damn, the enemy dodged");
-            boolean isRemove = inventory.remove(Items.ARROW);
+            boolean _ = inventory.remove(Items.ARROW);
             return;
         } else if (inventory.contains(Items.BOW) && inventory.contains(Items.ARROW)) {
             methodOfAttack = Items.BOW;
@@ -35,7 +35,7 @@ public class Archer extends Hero {
         switch (methodOfAttack) {
             case BOW -> {
                 damage = Items.BOW.getDamage() * power;
-                boolean isRemove = inventory.remove(Items.ARROW);
+                boolean _ = inventory.remove(Items.ARROW);
             }
             case HANDS -> damage = Items.HANDS.getDamage() * power;
         }
@@ -136,7 +136,7 @@ public class Archer extends Hero {
     public void heal() {
         if (inventory.contains(Items.PILL)) {
             healthy = maxHealth;
-            boolean isRemove = inventory.remove(Items.PILL);
+            boolean _ = inventory.remove(Items.PILL);
             System.out.println("The archer is healthy and full of strength");
         } else {
             System.out.println("Archer doesn't have any pills");

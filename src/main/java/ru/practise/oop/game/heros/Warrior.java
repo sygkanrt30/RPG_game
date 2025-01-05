@@ -148,7 +148,7 @@ public class Warrior extends Hero {
     public void heal() {
         if (inventory.contains(Items.PILL)) {
             healthy = maxHealth;
-            boolean isRemove = inventory.remove(Items.PILL);
+            boolean _ = inventory.remove(Items.PILL);
             System.out.println("The warrior is healthy and full of strength");
         } else {
             System.out.println("Warrior doesn't have any pills");

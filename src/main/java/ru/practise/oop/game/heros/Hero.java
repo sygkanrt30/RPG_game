@@ -103,7 +103,7 @@ public abstract class Hero {
 
     public void throwAwayItem(Items item) {
         if (inventory.contains(item)) {
-            boolean isRemove = inventory.remove(item);
+            boolean _ = inventory.remove(item);
             liftedPower += item.getWeight();
             System.out.println(item + " is throw away");
         }
